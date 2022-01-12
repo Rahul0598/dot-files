@@ -26,6 +26,7 @@ set $preferredFileManager /usr/bin/dolphin
 set $preferredMusicPlayer /usr/bin/spotify
 set $preferredTextEditor /usr/bin/mousepad
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
+set $preferredFileBrowser  /usr/bin/dolphin
 
 ###########################################
 ### Commonly Used Application Keybinds: ###
@@ -35,6 +36,7 @@ bindsym $super+F1 exec $preferredBrowser;focus
 bindsym $super+F2 exec $preferredMusicPlayer;focus
 bindsym $super+F3 exec $preferredFileManager;focus
 bindsym $super+F4 exec $preferredTextEditor;focus
+bindsym $super+e exec $preferredFileBrowser;focus
 
 ### Screen Capturing & Print Screen: ###
 
@@ -46,7 +48,7 @@ bindsym Print exec --no-startup-id $preferredScreenCaptureTool
 # - alacritty & xfce4-terminal can also be started using their individual keybindings
 
 bindsym $super+Return exec $preferredTerminalEmulator
-bindsym $super+t exec xfce4-terminal
+# bindsym $super+t exec xfce4-terminal
 
 # set font
 font pango: source code pro 10
@@ -87,8 +89,6 @@ bindsym $super+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 # Garuda Linux install
 bindsym $super+i exec sudo -E calamares
 
-# Lock screen
-bindsym $super+l exec i3lock -i $lockScreenWallpaper
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -129,6 +129,11 @@ bindsym $super+Down focus down
 bindsym $super+Up focus up
 bindsym $super+Right focus right
 
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+
 # move focused window
 bindsym $super+Shift+Left move left
 bindsym $super+Shift+Down move down
@@ -136,7 +141,7 @@ bindsym $super+Shift+Up move up
 bindsym $super+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $super+h split h
+#bindsym $super+h split h
 
 # split in vertical orientation
 bindsym $super+v split v
@@ -379,8 +384,10 @@ mode "$mode_gaps_outer" {
 # Set shut down, restart and locking features
 bindsym $super+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    #bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym l exec --no-startup-id i3lock -i $lockScreenWallpaper, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"

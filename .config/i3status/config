@@ -16,14 +16,14 @@ general {
 
 order += "spotify"
 #order += "net_rate"
-order += "whatismyip"
-order += "wireless _first_"
+#order += "whatismyip"
+#order += "wireless _first_"
 #order += "ethernet _first_"
 #order += "cpu_usage"
 order += "disk /"
 order += "timer"
 order += "battery all"
-order += "volume master"
+#order += "volume master"
 #order += "battery_level"
 #order += "path_exists VPN"
 #order += "external_script"
@@ -55,6 +55,7 @@ diskdata {
 	prefix_type = decimal
 	#format_space = "[\?min_length=5 {value:.2f}]"
 	format = " ⛁ {used_percent}% (U:{used} GB, F:{free} GB) "
+    format_down = "⛁"
 }
 
 external_script {
@@ -72,6 +73,7 @@ whatismyip {
 wireless _first_ {
 	# if you use %speed, i3status requires root privileges
         format_up = "  %essid (%ip) "
+        #icon_on = ""
         format_down = ""
 }
 
@@ -102,12 +104,12 @@ battery all {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M"
+        format = "%a %d %H:%M"
         #format = " %d/%m %H:%M:%S"
 }
 
 tztime blore {
-    format = "%Z %H:%M"
+    format = "%Z %a %H:%M"
     timezone = "Asia/Kolkata"
 }
 
