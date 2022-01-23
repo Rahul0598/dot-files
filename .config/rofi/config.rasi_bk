@@ -1,10 +1,11 @@
 configuration {
         modi: "window,run,ssh,combi,drun";
-        combi-modi: "window,drun";
+        combi-modi: "window,drun"
         font: "Source Code Pro 12";
         terminal: "alacritty";
 }
-@theme "nord"
+
+@theme "gorgeHousse"
 
 /*      width: 50;*/
 /*      lines: 15;*/
@@ -135,3 +136,4 @@ configuration {
 /*      me-select-entry: "Mouse1";*/
 /*      me-accept-entry: "MouseD1";*/
 /*      me-accept-custom: "Control+MouseD1";*/
+
