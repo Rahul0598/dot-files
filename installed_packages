@@ -3,6 +3,7 @@ aalib
 accountsservice
 acl
 acpi_call-dkms
+acpilight
 adobe-source-code-pro-fonts
 adwaita-icon-theme
 alacritty
@@ -19,6 +20,8 @@ aom
 appstream-glib
 apr
 apr-util
+arch-audit
+arch-audit-gtk
 archlinux-appstream-data-pamac
 archlinux-keyring
 archlinux-xdg-menu
@@ -69,6 +72,7 @@ btrfs-progs
 btrfsmaintenance
 bubblewrap
 bzip2
+c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
@@ -132,6 +136,7 @@ efibootmgr
 efivar
 egl-wayland
 eglexternalplatform
+electron13
 elfutils
 enchant
 ethtool
@@ -965,6 +970,7 @@ nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
+obsidian
 ocl-icd
 onboard
 oniguruma
@@ -1392,7 +1398,6 @@ xorg-server-common
 xorg-server-xephyr
 xorg-setxkbmap
 xorg-xauth
-xorg-xbacklight
 xorg-xdpyinfo
 xorg-xhost
 xorg-xinit
