@@ -16,7 +16,8 @@ set $alt Mod1
 ### Wallpaper: ###
 # - You need to specify homescreen wallpaper using azote
 
-set $lockScreenWallpaper /usr/share/wallpapers/lock-screen.png
+#set $lockScreenWallpaper /usr/share/wallpapers/lock-screen.png
+set $lockScreenWallpaper /home/devajji/Pictures/lock-screen.png
 
 ### Applications: ###
 
@@ -65,7 +66,8 @@ exec --no-startup-id optimus-manager
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-#exec --no-startup-id redshift
+exec --no-startup-id redshift
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id desktop-items
 exec --no-startup-id nm-applet
 #exec --no-startup-id pamac-tray
@@ -78,6 +80,7 @@ exec_always --no-startup-id numlockx on
 exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 exec --no-startup-id /home/devajji/.local/bin/alternating_layouts.py
+exec --no-startup-id libinput-gestures-setup start
 
 # hide/unhide i3status bar
 bindsym $super+m bar mode toggle
@@ -223,7 +226,7 @@ exec spotify
 exec code
 exec blueman-manager
 assign [class="firefox"] $workspace1
-assign [class="Code"] $workspace2
+assign [class="code-oss"] $workspace2
 assign [class="Blueman-manager"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
 
@@ -251,12 +254,12 @@ bindsym $super+u border none
 bindsym $super+y border pixel 1
 bindsym $super+n border normal
 
-
 # panel
 # Start i3bar to display a workspace bar
 
 bar {
-	#status_command exec /usr/bin/net-speed.sh
+	status_command exec /usr/bin/net-speed.sh
+	status_command exec /home/devajji/.local/bin/openweathermap-fullfeatured.sh
 	status_command py3status -c ~/.config/i3status/config
     #strip_workspace_numbers yes|no
 	#strip_workspace_name yes|no
@@ -387,7 +390,13 @@ set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot
 
 mode "$mode_system" {
     #bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym l exec --no-startup-id i3lock -i $lockScreenWallpaper, mode "default"
+    #bindsym l exec --no-startup-id i3lock -i $lockScreenWallpaper --ignore-empty-password, mode "default"
+    bindsym l exec --no-startup-id i3lock -n -e -i $lockScreenWallpaper \
+               --inside-color=373445ff --ring-color=ffffffff --line-uses-inside \
+               --keyhl-color=d23c3dff --bshl-color=d23c3dff --separator-color=00000000 \
+               --insidever-color=fecf4dff --insidewrong-color=d23c3dff --pass-volume \
+               --ringver-color=ffffffff --ringwrong-color=ffffffff --ind-pos="x+86:y+1003" \
+               --radius=15 --verif-text="" --wrong-text="", mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
