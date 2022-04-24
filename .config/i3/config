@@ -226,7 +226,7 @@ exec spotify
 exec code
 exec blueman-manager
 assign [class="firefox"] $workspace1
-assign [class="code-oss"] $workspace2
+assign [class="Code"] $workspace2
 assign [class="Blueman-manager"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
 
